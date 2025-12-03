@@ -7,35 +7,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/gray_dark"
     android:layout_marginBottom="2dp">
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_image"
         android:layout_width="120dp"
         android:layout_height="160dp"
         app:cardCornerRadius="12dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        >
-    <ImageView
-        android:id="@+id/image_film"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="centerCrop"
-        />
-</androidx.cardview.widget.CardView>
-<TextView
-    android:id="@+id/tv_name"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    app:layout_constraintStart_toEndOf="@+id/card_image"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="@+id/card_image"
-    android:text="SpiderMan: \n Far From Home(2019)"
-    android:layout_marginHorizontal="16dp"
-    android:textStyle="bold"
-    android:textColor="@color/white"
-    android:textSize="24sp"
-    />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/image_film"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/card_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/card_image"
+        android:text="SpiderMan: \n Far From Home(2019)"
+        android:layout_marginHorizontal="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
     <TextView
         android:id="@+id/tv_rating"
         android:layout_width="0dp"

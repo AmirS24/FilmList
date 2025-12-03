@@ -8,5 +8,4 @@ data class FilmModel(
     val rating: String
 
 
-
 )
