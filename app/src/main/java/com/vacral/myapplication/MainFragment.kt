@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.vacral.myapplication.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -26,15 +27,18 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Сначала загружаем данные
+
         loadData()
-        // 2. Потом создаем адаптер с уже заполненным списком
-        adapter = FilmAdapter(list)
-        // 3. Устанавливаем адаптер
+        adapter = FilmAdapter(list, ::onClick)
         binding.rvView.adapter = adapter
+
+    }
+    private fun onClick(filmModel: FilmModel){
+        val action = MainFragmentDirections.actionMainFragmentToDetailFragment(filmModel)
+
+        findNavController().navigate(action)
     }
 
-    // Метод для загрузки данных
     private fun loadData() {
         list = listOf(
             FilmModel(

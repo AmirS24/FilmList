@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.vacral.myapplication.databinding.ItemFilmBinding
 
-class FilmAdapter(val filmList: List<FilmModel>) :
+class FilmAdapter(val filmList: List<FilmModel>,val onClick:(FilmModel) -> Unit) :
     RecyclerView.Adapter<FilmAdapter.FilmViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -31,16 +31,17 @@ class FilmAdapter(val filmList: List<FilmModel>) :
 
     override fun getItemCount(): Int = filmList.size
 
-    class FilmViewHolder(private val binding: ItemFilmBinding) :
+     inner class FilmViewHolder(private val binding: ItemFilmBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(filmModel: FilmModel) {
             binding.apply {
                 tvName.text = filmModel.name
                 tvRating.text = filmModel.rating
-                    //todo you need extension
                 imageFilm.loadImg(filmModel.img)
             }
-
+    itemView.setOnClickListener{
+        onClick(filmModel)
+    }
         }
     }
 }
